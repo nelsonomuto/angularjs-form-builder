@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
+    directives: 'app/scripts/directives',
     dist: 'dist'
   };
 
@@ -27,6 +28,7 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     yeoman: yeomanConfig,
     watch: {
       coffee: {
@@ -158,11 +160,15 @@ module.exports = function (grunt) {
         }
       }
     },
-    // not used since Uglify task does concat,
-    // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
+    concat: {
+      dist: {
+        src: [       
+          '<%= yeoman.directives %>/{,*}/*.js',
+          '!<%= yeoman.directives %>/{,*}/*spec.js'
+        ],
+        dest: '<%= yeoman.dist %>/<%= pkg.name %>.js'
+      }
+    },
     rev: {
       dist: {
         files: {
