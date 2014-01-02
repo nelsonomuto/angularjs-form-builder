@@ -8,7 +8,9 @@
                 "field_title" : "First Name",
                 "field_type" : "textfield",
                 "field_value" : "John",
-                "field_required" : true
+                "field_required" : true,
+                "minLength": 5,
+                "maxLength": 15
             },
             "2" : {
                 "field_id" : 2,

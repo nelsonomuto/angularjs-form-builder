@@ -1,4 +1,25 @@
 <form-directive form="form"></form-directive><hr>
+<form>
+	 <label for="userID">User ID</label>
+                    <input type="hidden" id="userOid" ng-model="user.id" >
+                    <input type="text" class="input-large" name="userID" id="userID" ng-model="user.userName" ng-disabled="isEdit"
+                           app-focus-me
+                           validation-field-required="true"
+                           validation-min-length="5"
+                           validation-max-length="15"
+                           validation-no-space="true"
+                           validation-one-alphabet="true"
+                           validation-no-special-chars="true"
+                            />
+
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="input-large" name="firstName" id="firstName" ng-model="user.firstName"
+                           validation-field-required="true"
+                           validation-max-length="30"
+                           validation-only-alphabets="true"
+                           validation-no-space="true"
+                            />
+</form>
 <a ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
 <a ng-show="showJson" ng-click="showJson = false">Hide form json object</a><br><br>
 <div ng-show="showJson">

@@ -1,6 +1,11 @@
 'use strict';
 
-var angularApp = angular.module('angularjsFormBuilderApp', ['ui.bootstrap', '$strap.directives']);
+var angularApp = angular.module('angularjsFormBuilderApp', [
+    'ui.bootstrap', 
+    '$strap.directives',
+    'directives.customvalidation.customValidations',
+    'extendCustomValidations'
+]);
 
 angularApp.config(function ($routeProvider) {
 

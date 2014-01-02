@@ -42,7 +42,27 @@ angularApp.directive('fieldDirective', function ($http, $compile) {
             // GET template content from path
             var templateUrl = getTemplateUrl(scope.field);
             $http.get(templateUrl).success(function(data) {
-                element.html(data);
+                var loopScope, template;
+
+                template = data;
+                loopScope = {
+                    template: template
+                };
+
+                //begin extract custom validation attribute so that directives for custom validation can run
+                angular.forEach(template.match(/\bvalidation.+/g), function(customValidationAttribute){
+                    var extract, fieldIndex, validationProperty;
+                    if((fieldIndex = customValidationAttribute.indexOf('field')) > -1){
+                        extract = customValidationAttribute.substring(0, customValidationAttribute.indexOf('{'));
+                        validationProperty = customValidationAttribute.substring(fieldIndex + 6, customValidationAttribute.indexOf('}') );
+                        extract += scope.field[validationProperty] + '"';
+                        this.template = this.template.replace(customValidationAttribute.trim(), extract);
+                    }
+                }, loopScope);
+                template = loopScope.template;
+                //end extract custom validation attribute so that directives for custom validation can run
+
+                element.html(template);                                
                 $compile(element.contents())(scope);
             });
         }
@@ -51,7 +71,7 @@ angularApp.directive('fieldDirective', function ($http, $compile) {
             template: '<div>{{field}}</div>',
             restrict: 'E',
             scope: {
-                field:'='
+                field:'=',
             },
             link: linker
         };

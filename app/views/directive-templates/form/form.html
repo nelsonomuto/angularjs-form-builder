@@ -5,7 +5,7 @@
         <div class="span2">Form ID:</div>
         <div class="span4">{{ form.form_id }}</div>
     </div>
-    <form name="myForm" id="myForm">
+    <form app-dynamic name="myForm" id="myForm">
         <div ng-repeat="field in form.form_fields">
             <field-directive field="field">
 
