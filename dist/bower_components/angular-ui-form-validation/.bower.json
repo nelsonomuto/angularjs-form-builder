@@ -1,0 +1,33 @@
+{
+  "name": "angular-ui-form-validation",
+  "version": "0.0.2",
+  "main": "./dist/angular-ui-form-validation.js",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "json3": "~3.2.4",
+    "es5-shim": "~2.1.0",
+    "jquery": "~1.10.2",
+    "sass-bootstrap": "~3.0.0",
+    "angular-resource": "~1.2.0",
+    "angular-cookies": "~1.2.0",
+    "angular-sanitize": "~1.2.0",
+    "angular-route": "~1.2.0",
+    "angular-bootstrap": "~0.7.0",
+    "angular-template-retriever": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0",
+    "angular-scenario": "~1.2.0"
+  },
+  "homepage": "https://github.com/nelsonomuto/angular-ui-form-validation",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "c77fae86eec84d3c27eebea58dc73ace42a1aa20"
+  },
+  "_source": "git://github.com/nelsonomuto/angular-ui-form-validation.git",
+  "_target": "~0.0.2",
+  "_originalSource": "angular-ui-form-validation",
+  "_direct": true
+}
