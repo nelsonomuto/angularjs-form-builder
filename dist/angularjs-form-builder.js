@@ -1,6 +1,7 @@
 'use strict';
 
-angularApp.directive('fieldDirective', function ($http, $compile) {
+angular.module('fieldDirective', [])
+.directive('fieldDirective', function ($http, $compile) {
 
         var getTemplateUrl = function(field) {
             var type = field.field_type;
@@ -79,7 +80,8 @@ angularApp.directive('fieldDirective', function ($http, $compile) {
 
 'use strict';
 
-angularApp.directive('formDirective', function () {
+angular.module('formDirective', [])
+.directive('formDirective', function () {
     return {
         controller: function($scope){
             $scope.submit = function(){
