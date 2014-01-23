@@ -49,19 +49,6 @@ angularApp.directive('fieldDirective', function ($http, $compile) {
                     template: template
                 };
 
-                //begin extract custom validation attribute so that directives for custom validation can run
-                angular.forEach(template.match(/\bvalidation.+/g), function(customValidationAttribute){
-                    var extract, fieldIndex, validationProperty;
-                    if((fieldIndex = customValidationAttribute.indexOf('field')) > -1){
-                        extract = customValidationAttribute.substring(0, customValidationAttribute.indexOf('{'));
-                        validationProperty = customValidationAttribute.substring(fieldIndex + 6, customValidationAttribute.indexOf('}') );
-                        extract += scope.field[validationProperty] + '"';
-                        this.template = this.template.replace(customValidationAttribute.trim(), extract);
-                    }
-                }, loopScope);
-                template = loopScope.template;
-                //end extract custom validation attribute so that directives for custom validation can run
-
                 element.html(template);                                
                 $compile(element.contents())(scope);
             });
